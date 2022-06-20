@@ -17,7 +17,6 @@ public class TextBoxPage extends BasePage{
     private final SelenideElement emailField = $x("//p[@id='email']");
     private final SelenideElement currentAddressField = $x("//p[@id='currentAddress']");
     private final SelenideElement permanentAddressField = $x("//p[@id='permanentAddress']");
-    // всплывающее сообщение для email
 
     public void inputFullName(final String fullName) {
         input(fullNameInput,fullName);
@@ -61,5 +60,25 @@ public class TextBoxPage extends BasePage{
 
     public String getPermanentAddress() {
         return getContentOfElement(permanentAddressField);
+    }
+
+    public boolean isDisplayedNameField() {
+        return isDisplayed(nameField);
+    }
+
+    public boolean isDisplayedEmailField() {
+        return isDisplayed(emailField);
+    }
+
+    public boolean isDisplayedCurrentAddressField() {
+        return isDisplayed(currentAddressField);
+    }
+
+    public boolean isDisplayedPermanentAddress() {
+        return isDisplayed(permanentAddressField);
+    }
+
+    public String getClassAttributeEmailInput() {
+        return emailInput.getAttribute("class");
     }
 }

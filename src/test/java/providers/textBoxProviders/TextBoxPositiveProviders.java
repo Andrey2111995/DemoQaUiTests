@@ -10,38 +10,52 @@ public final class TextBoxPositiveProviders {
 
     private static final int START = 5;
     private static final int STOP = 10;
-    private static final Random RANDOM = new Random();
-
 
     @DataProvider
-    public static Object[][] englishProviderAllFields() {
+    public static Object[][] englishProviderAllInputs() {
         return new Object[][]{
                 {randomEnglishLowerCaseString(generateRandomIntValue()),
-                        randomEmail(),
+                        randomEmailLowerCase(),
                         randomEnglishLowerCaseString(generateRandomIntValue()),
                         randomEnglishLowerCaseString(generateRandomIntValue())},
                 {randomEnglishUpperCaseString(generateRandomIntValue()),
-                        randomEmail(),
+                        randomEmailUpperCase(),
                         randomEnglishUpperCaseString(generateRandomIntValue()),
-                        randomEnglishLowerCaseString(generateRandomIntValue())}
+                        randomEnglishUpperCaseString(generateRandomIntValue())}
         };
     }
 
     @DataProvider
-    public static Object[][] russianProviderAllFieldsExceptEmail() {
+    public static Object[][] russianProviderAllInputsExceptEmail() {
         return new Object[][]{
                 {randomRussianLowerCaseString(generateRandomIntValue()),
-                        randomEmail(),
+                        randomEmailLowerCase(),
                         randomRussianLowerCaseString(generateRandomIntValue()),
                         randomRussianLowerCaseString(generateRandomIntValue())},
-                {randomRussianLowerCaseString(generateRandomIntValue()),
-                        randomEmail(),
-                        randomRussianLowerCaseString(generateRandomIntValue()),
-                        randomRussianLowerCaseString(generateRandomIntValue())}
+                {randomRussianUpperCaseString(generateRandomIntValue()),
+                        randomEmailUpperCase(),
+                        randomRussianUpperCaseString(generateRandomIntValue()),
+                        randomRussianUpperCaseString(generateRandomIntValue())}
+        };
+    }
+
+    @DataProvider
+    public static Object[][] arabicNumberProviders() {
+        return new Object[][] {
+                {randomNumberString(1),
+                        randomEmailOfArabicNumbers(),
+                        randomNumberString(1),
+                        randomNumberString(1)
+                },
+                {randomNumberString(generateRandomIntValue()),
+                        randomEmailOfArabicNumbers(),
+                        randomNumberString(generateRandomIntValue()),
+                        randomNumberString(generateRandomIntValue())
+                }
         };
     }
 
     private static int generateRandomIntValue() {
-        return RANDOM.nextInt(STOP - START + 1) + START;
+        return new Random().nextInt(STOP - START + 1) + START;
     }
 }

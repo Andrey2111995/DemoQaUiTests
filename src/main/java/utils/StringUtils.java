@@ -3,22 +3,36 @@ package utils;
 import java.util.Random;
 
 /**
- * Класс для работы со строками, их генерации.
+ * Вспомогательный класс для генерации тестовых данных
  */
 public final class StringUtils {
 
-    public final static String RUSSIAN_LOWER_CASE_PATTERN = "абвгдеёжзийклмнопрстуфхцчшщъыьэяю";
-    public final static String RUSSIAN_UPPER_CASE_PATTERN = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
-    public final static String ENGLISH_LOWER_CASE_PATTERN = "abcdefghijklmnopqrstuvwxyz";
-    public final static String ENGLISH_UPPER_CASE_PATTERN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    public final static String ARABIC_NUMBER_PATTER = "0123456789";
+    private final static String RUSSIAN_LOWER_CASE_PATTERN = "абвгдеёжзийклмнопрстуфхцчшщъыьэяю";
+    private final static String RUSSIAN_UPPER_CASE_PATTERN = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+    private final static String ENGLISH_LOWER_CASE_PATTERN = "abcdefghijklmnopqrstuvwxyz";
+    private final static String ENGLISH_UPPER_CASE_PATTERN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private final static String ARABIC_NUMBER_PATTER = "0123456789";
     private final static Random RANDOM = new Random();
 
-    public static String randomEmail() {
+    public static String randomEmailLowerCase() {
         return String.format("%s@%s.%s",
                 randomEnglishLowerCaseString(6),
                 randomEnglishLowerCaseString(3),
                 randomEnglishLowerCaseString(3));
+    }
+
+    public static String randomEmailUpperCase() {
+        return String.format("%s@%s.%s",
+                randomEnglishUpperCaseString(6),
+                randomEnglishUpperCaseString(3),
+                randomEnglishUpperCaseString(3));
+    }
+
+    public static String randomEmailOfArabicNumbers() {
+        return String.format("%s@%s.%s",
+                randomNumberString(6),
+                randomNumberString(3),
+                randomNumberString(3));
     }
 
     public static String randomEnglishLowerCaseString(final int length) {

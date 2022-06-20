@@ -6,7 +6,7 @@ import lombok.SneakyThrows;
 public abstract class BasePage {
 
     @SneakyThrows
-    public static <T extends BasePage> T getPage(Class<T> clazz)  {
+    public static <T extends BasePage> T getPage(final Class<T> clazz)  {
         return clazz.getDeclaredConstructor().newInstance();
     }
 
@@ -16,5 +16,9 @@ public abstract class BasePage {
 
     protected String getContentOfElement(final SelenideElement element) {
         return element.getText();
+    }
+
+    protected boolean isDisplayed(SelenideElement element) {
+        return element.isDisplayed();
     }
 }

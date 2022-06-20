@@ -2,6 +2,9 @@ package utils;
 
 import org.testng.Assert;
 
+/**
+ * Вспомогательный класс для проверки заполнения полей ввода
+ */
 public final class TextBoxAssertUtils {
 
     public static void assertName(final String actual, final String expected) {
